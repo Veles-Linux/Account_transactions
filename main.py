@@ -12,7 +12,13 @@ for i in five_operations:
         print(i['operationAmount']['amount'], i['operationAmount']['currency']['name'])
         print()
     else:
-        print(utils.name_card(i['from']), utils.card_encryption(i['from']), '->', utils.name_card(i['to']),
-              utils.chek_encryption(i['to']))
-        print(i['operationAmount']['amount'], i['operationAmount']['currency']['name'])
-        print()
+        if utils.name_card(i['from']) == 'Счет':
+            print(utils.name_card(i['from']), utils.chek_encryption(i['from']), '->', utils.name_card(i['to']),
+                  utils.chek_encryption(i['to']))
+            print(i['operationAmount']['amount'], i['operationAmount']['currency']['name'])
+            print()
+        else:
+            print(utils.name_card(i['from']), utils.card_encryption(i['from']), '->', utils.name_card(i['to']),
+                  utils.chek_encryption(i['to']))
+            print(i['operationAmount']['amount'], i['operationAmount']['currency']['name'])
+            print()
