@@ -7,14 +7,12 @@ with open('operations.json') as f:
 
 def extend_operations():
     """Фунция вытаскиет все операции в статусе 'EXTEND'"""
-    count = 0
     operations_list = []  # Список с подходящими под условия операциями
     for i in templates:
-        if templates[count] == {}:  # Если нет данных, то пропускаем итерацию
+        if i == {}:
             continue
-        if templates[count]['state'] == 'EXECUTED':
-            operations_list.append(templates[count])
-            count += 1
+        elif i['state'] == 'EXECUTED':
+            operations_list.append(i)
     return operations_list
 
 
